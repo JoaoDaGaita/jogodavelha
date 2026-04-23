@@ -6,10 +6,21 @@ from game.game import Game
 
 def main():
     board = Board()
-    ai_engine = MinimaxAI()
 
-    p1 = HumanPlayer("X")
-    p2 = AIPlayer("O", ai_engine)
+    
+    # ai = MinimaxAI(ai_player="O", human_player="X")
+
+    # p1 = HumanPlayer("X")
+    # p2 = AIPlayer("O", ai)
+
+
+
+    ai_X = MinimaxAI(ai_player="X", human_player="O")
+    ai_O = MinimaxAI(ai_player="O", human_player="X")
+    
+    p1 = AIPlayer("X", ai_X)
+    p2 = AIPlayer("O", ai_O)
+
 
     game = Game(board, p1, p2)
     game.play()
